@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  transition: all 0.3s ease-in-out; /* Adicionando transições suaves ao reset */
 }
 
 body {
@@ -11,6 +12,7 @@ body {
   color: #333;
   line-height: 1.6;
   overflow-x: hidden;
+  font-size: 16px; /* Definindo um tamanho de fonte base para consistência */
 }
 
 .container {
@@ -24,6 +26,7 @@ body {
 .navbar {
   background-color: #1f1f1f;
   padding: 20px 0;
+  transition: background-color 0.3s ease; /* Suavizando a cor de fundo da navbar */
 }
 
 .logo-area {
@@ -42,6 +45,7 @@ body {
   color: #fff;
   font-size: 24px;
   font-weight: bold;
+  transition: color 0.3s ease; /* Suavizando a transição da cor do logo */
 }
 
 .navbar .container {
@@ -60,17 +64,19 @@ body {
   color: #fff;
   text-decoration: none;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-links li a:hover {
   color: #ff9800;
+  transform: scale(1.05); /* Efeito de zoom suave ao passar o mouse */
 }
 
 /* Seção de Perfil */
 .profile-section {
   padding: 80px 0;
   background-color: #ffffff;
+  text-align: center; /* Alinhando o texto ao centro para um design mais equilibrado */
 }
 
 .profile-container {
@@ -79,6 +85,7 @@ body {
   align-items: center;
   justify-content: space-between;
   gap: 40px;
+  text-align: left; /* Garantindo que o texto dentro do container não fique centralizado */
 }
 
 .profile-image img {
@@ -86,7 +93,12 @@ body {
   max-width: 400px;
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  transition: transform 0.5s ease-in-out;
+  transition: transform 0.5s ease-in-out, box-shadow 0.3s ease;
+}
+
+.profile-image img:hover {
+  transform: scale(1.05); /* Efeito de zoom suave na imagem */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Aumentando a sombra ao passar o mouse */
 }
 
 .profile-info {
@@ -112,11 +124,12 @@ body {
   color: #fff;
   text-decoration: none;
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn:hover {
   background-color: #e68900;
+  transform: translateY(-5px); /* Levantando o botão ao passar o mouse */
 }
 
 /* Seções de Cards */
@@ -125,6 +138,7 @@ body {
   color: #003580;
   margin-bottom: 30px;
   text-align: center;
+  font-weight: 700;
 }
 
 .cards {
@@ -142,14 +156,14 @@ body {
   max-width: 300px;
   flex: 1 1 250px;
   text-align: center;
-  opacity: 0; /* Inicialmente invisível */
-  transform: translateY(30px); /* Deslocamento para baixo */
-  transition: opacity 1.2s ease, transform 1.2s ease; /* Aumentado o tempo de animação */
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
 }
 
 .card.visible {
   opacity: 1;
-  transform: translateY(0); /* Movendo para a posição final */
+  transform: translateY(0);
 }
 
 .card img {
@@ -163,8 +177,6 @@ body {
   font-size: 20px;
   margin: 20px 0;
   color: #111;
-  text-align: center;
-  padding: 0 10px;
 }
 
 .card p {
@@ -172,7 +184,7 @@ body {
   color: #777;
   padding: 0 20px;
   margin-bottom: 20px;
-  text-align: justify; /* Justificando o texto */
+  text-align: justify;
 }
 
 /* Footer */
@@ -211,19 +223,16 @@ body {
 
   .card {
     max-width: 100%;
-    flex: 1 1 100%; /* Assegura que os cards ocupem 100% da largura disponível */
+    flex: 1 1 100%;
     margin: 0 auto;
   }
 
   .card h3 {
-    font-size: 18px; /* Ajustando o tamanho da fonte para telas menores */
-    padding: 0 10px;
+    font-size: 18px;
   }
 
   .card p {
-    font-size: 14px; /* Ajustando o tamanho da descrição para telas menores */
-    padding: 0 15px; /* Reduzindo o padding */
-    text-align: justify;
+    font-size: 14px;
   }
 }
 
@@ -249,12 +258,11 @@ body {
     font-size: 14px;
   }
 
-  /* Melhorando o layout dos cards */
   .card {
-    margin-bottom: 20px; /* Adicionando espaço entre os cards */
+    margin-bottom: 20px;
   }
 
   .card img {
-    height: 180px; /* Ajustando a altura da imagem para dispositivos móveis */
+    height: 180px;
   }
 }

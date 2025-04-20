@@ -6,7 +6,8 @@
   <title>Matheus Esdras | Corretor de Imóveis em Maceió | Casas, Apartamentos e Lançamentos</title>
   <meta name="description" content="Encontre os melhores imóveis em Maceió com Matheus Esdras, corretor de imóveis especializado em casas, apartamentos, terrenos e lançamentos. Atendimento confiável e personalizado." />
   <meta name="keywords" content="corretor de imóveis Maceió, casas à venda Maceió, imóveis em Maceió, Matheus Esdras, apartamentos Maceió, comprar imóvel Alagoas, corretor confiável Maceió" />
-  
+  <!-- Favicon -->
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon" />
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -20,7 +21,13 @@
         <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo" class="logo-img">
         <h1 class="logo-text">Matheus Esdras</h1>
       </div>
-      <nav>
+      <!-- Botão de menu para dispositivos móveis -->
+      <div class="menu-toggle" id="menu-toggle">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+      <nav id="navbar">
         <ul class="nav-links">
           <li><a href="#">Início</a></li>
           <li><a href="#">Sobre</a></li>
@@ -49,12 +56,12 @@
     <div class="container">
       <h2 class="section-title">Vendas Bem-Sucedidas</h2>
       <div class="cards">
-        <div class="card" data-aos="fade-up" data-aos-delay="1400">
+        <div class="card" data-aos="fade-up" data-aos-delay="1000">
           <img src="{{ url_for('static', filename='images/imovel1.jpg') }}" alt="Imóvel vendido">
           <h3>Casa no bairro X</h3>
           <p>Vendida em tempo recorde! Cliente 100% satisfeito.</p>
         </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="1800">
+        <div class="card" data-aos="fade-up" data-aos-delay="1200">
           <img src="{{ url_for('static', filename='images/imovel2.jpg') }}" alt="Imóvel vendido">
           <h3>Apartamento na orla</h3>
           <p>Vista incrível e uma venda inesquecível.</p>
@@ -68,12 +75,12 @@
     <div class="container">
       <h2 class="section-title">Imóveis à Venda</h2>
       <div class="cards">
-        <div class="card" data-aos="fade-up" data-aos-delay="1400">
+        <div class="card" data-aos="fade-up" data-aos-delay="1000">
           <img src="{{ url_for('static', filename='images/imovel3.jpg') }}" alt="Imóvel à venda">
           <h3>Casa com 3 quartos</h3>
           <p>Localizada em bairro tranquilo, com quintal e varanda.</p>
         </div>
-        <div class="card" data-aos="fade-up" data-aos-delay="1800">
+        <div class="card" data-aos="fade-up" data-aos-delay="1200">
           <img src="{{ url_for('static', filename='images/imovel4.jpg') }}" alt="Imóvel à venda">
           <h3>Apartamento moderno</h3>
           <p>2 quartos, vista para o mar e condomínio completo.</p>
@@ -118,6 +125,15 @@
 
     cards.forEach(card => {
       observer.observe(card);
+    });
+
+    // Menu Toggle (abrir/fechar)
+    const menuToggle = document.getElementById('menu-toggle');
+    const navbar = document.getElementById('navbar');
+    
+    menuToggle.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+      menuToggle.classList.toggle('active');
     });
   </script>
 
