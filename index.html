@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Matheus Esdras | Corretor de Imóveis em Maceió | Casas, Apartamentos e Lançamentos</title>
+  <meta name="description" content="Encontre os melhores imóveis em Maceió com Matheus Esdras, corretor de imóveis especializado em casas, apartamentos, terrenos e lançamentos. Atendimento confiável e personalizado." />
+  <meta name="keywords" content="corretor de imóveis Maceió, casas à venda Maceió, imóveis em Maceió, Matheus Esdras, apartamentos Maceió, comprar imóvel Alagoas, corretor confiável Maceió" />
+  
+  <!-- AOS CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="container">
+      <div class="logo-area">
+        <img src="logo.svg" alt="Logo" class="logo-img">
+        <h1 class="logo-text">Matheus Esdras</h1>
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#">Início</a></li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="#">Contato</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Seção de Perfil Profissional -->
+  <section class="profile-section">
+    <div class="container profile-container">
+      <div class="profile-image">
+        <img src="mth.jpg" alt="Foto Profissional">
+      </div>
+      <div class="profile-info">
+        <h2>Matheus Esdras</h2>
+        <p>Sou corretor de imóveis com paixão por conectar pessoas aos seus lares dos sonhos. Trabalho com ética, transparência e dedicação para transformar sonhos em realidade em Maceió e região.</p>
+        <a href="#" class="btn">Fale comigo</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Imóveis Vendidos -->
+  <section class="sales-section">
+    <div class="container">
+      <h2 class="section-title">Vendas Bem-Sucedidas</h2>
+      <div class="cards">
+        <div class="card" data-aos="fade-up" data-aos-delay="1400">
+          <img src="imovel1.jpg" alt="Imóvel vendido">
+          <h3>Casa no bairro X</h3>
+          <p>Vendida em tempo recorde! Cliente 100% satisfeito.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="1800">
+          <img src="imovel2.jpg" alt="Imóvel vendido">
+          <h3>Apartamento na orla</h3>
+          <p>Vista incrível e uma venda inesquecível.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Imóveis à Venda -->
+  <section class="listing-section">
+    <div class="container">
+      <h2 class="section-title">Imóveis à Venda</h2>
+      <div class="cards">
+        <div class="card" data-aos="fade-up" data-aos-delay="1400">
+          <img src="imovel3.jpg" alt="Imóvel à venda">
+          <h3>Casa com 3 quartos</h3>
+          <p>Localizada em bairro tranquilo, com quintal e varanda.</p>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-delay="1800">
+          <img src="imovel4.jpg" alt="Imóvel à venda">
+          <h3>Apartamento moderno</h3>
+          <p>2 quartos, vista para o mar e condomínio completo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2025 Matheus Esdras. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- AOS JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  
+  <script>
+    // Inicializa o AOS
+    AOS.init({
+      duration: 1000, // Duração da animação
+      easing: 'ease-in-out', // Tipo de transição
+      once: false, // A animação pode ocorrer várias vezes (não só a primeira)
+    });
+
+    // Selecionando todos os cards
+    const cards = document.querySelectorAll('.card');
+
+    // Função para gerenciar a visibilidade dos cards
+    const handleIntersection = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); // Adiciona a classe "visible" para animar
+          observer.unobserve(entry.target); // Para de observar depois que o card se torna visível
+        }
+      });
+    };
+
+    // Criando o IntersectionObserver
+    const observer = new IntersectionObserver(handleIntersection, {
+      threshold: 0.5, // 50% do card precisa estar visível para ser considerado
+    });
+
+    // Observando todos os cards
+    cards.forEach(card => {
+      observer.observe(card);
+    });
+  </script>
+
+</body>
+</html>
