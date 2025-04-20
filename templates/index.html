@@ -9,7 +9,7 @@
   
   <!-- AOS CSS -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
   <header class="navbar">
     <div class="container">
       <div class="logo-area">
-        <img src="logo.svg" alt="Logo" class="logo-img">
+        <img src="{{ url_for('static', filename='images/logo.svg') }}" alt="Logo" class="logo-img">
         <h1 class="logo-text">Matheus Esdras</h1>
       </div>
       <nav>
@@ -34,7 +34,7 @@
   <section class="profile-section">
     <div class="container profile-container">
       <div class="profile-image">
-        <img src="mth.jpg" alt="Foto Profissional">
+        <img src="{{ url_for('static', filename='images/mth.jpg') }}" alt="Foto Profissional">
       </div>
       <div class="profile-info">
         <h2>Matheus Esdras</h2>
@@ -50,12 +50,12 @@
       <h2 class="section-title">Vendas Bem-Sucedidas</h2>
       <div class="cards">
         <div class="card" data-aos="fade-up" data-aos-delay="1400">
-          <img src="imovel1.jpg" alt="Imóvel vendido">
+          <img src="{{ url_for('static', filename='images/imovel1.jpg') }}" alt="Imóvel vendido">
           <h3>Casa no bairro X</h3>
           <p>Vendida em tempo recorde! Cliente 100% satisfeito.</p>
         </div>
         <div class="card" data-aos="fade-up" data-aos-delay="1800">
-          <img src="imovel2.jpg" alt="Imóvel vendido">
+          <img src="{{ url_for('static', filename='images/imovel2.jpg') }}" alt="Imóvel vendido">
           <h3>Apartamento na orla</h3>
           <p>Vista incrível e uma venda inesquecível.</p>
         </div>
@@ -69,12 +69,12 @@
       <h2 class="section-title">Imóveis à Venda</h2>
       <div class="cards">
         <div class="card" data-aos="fade-up" data-aos-delay="1400">
-          <img src="imovel3.jpg" alt="Imóvel à venda">
+          <img src="{{ url_for('static', filename='images/imovel3.jpg') }}" alt="Imóvel à venda">
           <h3>Casa com 3 quartos</h3>
           <p>Localizada em bairro tranquilo, com quintal e varanda.</p>
         </div>
         <div class="card" data-aos="fade-up" data-aos-delay="1800">
-          <img src="imovel4.jpg" alt="Imóvel à venda">
+          <img src="{{ url_for('static', filename='images/imovel4.jpg') }}" alt="Imóvel à venda">
           <h3>Apartamento moderno</h3>
           <p>2 quartos, vista para o mar e condomínio completo.</p>
         </div>
@@ -95,30 +95,27 @@
   <script>
     // Inicializa o AOS
     AOS.init({
-      duration: 1000, // Duração da animação
-      easing: 'ease-in-out', // Tipo de transição
-      once: false, // A animação pode ocorrer várias vezes (não só a primeira)
+      duration: 1000,
+      easing: 'ease-in-out',
+      once: false,
     });
 
     // Selecionando todos os cards
     const cards = document.querySelectorAll('.card');
 
-    // Função para gerenciar a visibilidade dos cards
     const handleIntersection = (entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('visible'); // Adiciona a classe "visible" para animar
-          observer.unobserve(entry.target); // Para de observar depois que o card se torna visível
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
     };
 
-    // Criando o IntersectionObserver
     const observer = new IntersectionObserver(handleIntersection, {
-      threshold: 0.5, // 50% do card precisa estar visível para ser considerado
+      threshold: 0.5,
     });
 
-    // Observando todos os cards
     cards.forEach(card => {
       observer.observe(card);
     });

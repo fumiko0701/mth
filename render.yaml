@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: matheus-corretor
+    env: docker
+    plan: free
+    dockerfilePath: Dockerfile
+    autoDeploy: true
